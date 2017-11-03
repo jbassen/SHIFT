@@ -35,7 +35,7 @@ class App extends Component {
               lineHeight: '2em',
               fontFamily: 'arial'
             }}>
-              {this.props.activity.problem}
+              {this.props.problem}
             </div>
           </div>
           <AceEditor
@@ -45,7 +45,7 @@ class App extends Component {
             theme="monokai"
             name="UNIQUE_ID_OF_DIV"
             editorProps={{$blockScrolling: true}}
-            defaultValue={this.props.activity.answer}
+            defaultValue={this.props.answer}
           />
           <button style={{
               backgroundColor: 'green',
@@ -77,7 +77,7 @@ class App extends Component {
             lineHeight: '2em',
             fontFamily: 'arial'
           }}>
-          {this.props.activity.response}
+          {this.props.response}
           </div>
       </div>
     )
@@ -85,7 +85,11 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  activity: state.activity
+  problem: state.activity.problem,
+  input: state.activity.input,
+  output: state.activity.output,
+  answer: state.activity.answer,
+  response: state.activity.response
 })
 
 App = connect(mapStateToProps)(App);
